@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='regist.css') }}">
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">
+                            Bookie Bookie Review is a book review website. Bookie Bookie Review was develop using Goodreads API. It allows anyone to find any book they desire and get reliable rating from other users.
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">More Option</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ url_for('login') }}" class="text-white">Login</a></li>
+                            <li><a href="{{ url_for('contact') }}" class="text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="{{ url_for('index') }}" class="navbar-brand d-flex align-items-center">
+                    <img src="https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png" width="8%" alt="https://image.flaticon.com/icons/png/512/130/130304.png"/>
+                    <strong>Bookie Bookie Review</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <form class="form-group" action="{{ url_for('register') }}" method="POST">
+        <div>
+            <label for="eInput">Email:</label>
+            <br/>
+            <input type="email" placeholder="example@email.com" name="eInput">
+        </div>
+        <div>
+            <label for="pInput">Password:</label>
+            <br/>
+            <input type="password" placeholder="***********" name="pInput">
+        </div>
+        <div>
+            <br/>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+{% endblock %}
