@@ -22,6 +22,11 @@
   .jumbotron .container {
     max-width: 40rem;
   }
+
+  body {
+    background-color: #dbdad8;
+}
+
   
   footer {
     padding-top: 3rem;

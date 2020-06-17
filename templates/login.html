@@ -8,12 +8,13 @@
 
 {% block body %}
     <form class="form-signin" action="{{ url_for('main') }}" method="POST">
-        <img src="https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png" width="20%" alt="https://image.flaticon.com/icons/png/512/130/130304.png"/>
+        <img class="imgPic"src="https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png" width="20%" alt="https://image.flaticon.com/icons/png/512/130/130304.png"/>
         <h1 class="h3 mb-3 font-weight-normal">Login</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" name="eInput" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="pInput" id="inputPassword" class="form-control" placeholder="Password" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p>{{ message }}</p>
     </form>
 {% endblock %}

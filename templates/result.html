@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %}
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">
+                            Bookie Bookie Review is a book review website. Bookie Bookie Review was develop using Goodreads API. It allows anyone to find any book they desire and get reliable rating from other users.
+                        </p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">More Option</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="{{ url_for('logout') }}" class="text-white">Log Out</a></li>
+                            <li><a href="{{ url_for('contact') }}" class="text-white">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="{{ url_for('index') }}" class="navbar-brand d-flex align-items-center">
+                    <img src="https://i.pinimg.com/originals/2c/fc/93/2cfc93d7665f5d7728782700e50596e3.png" width="8%" alt="https://image.flaticon.com/icons/png/512/130/130304.png"/>
+                    <strong>Bookie Bookie Review</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for result in results%}
+
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                        <img class="imgMove"src="http://covers.openlibrary.org/b/isbn/{{result.isbn}}-M.jpg" />
+                        <div class="card-body">
+                            <h5>{{ result.title }}</h5>
+                            <p class="card-text">
+                                By: {{ result.author }}<br/>
+                                Publish Date: {{ result.year }}<br/>
+                                ISBN: {{ result.isbn }}                    
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{ url_for('book', bookISBN=result.isbn.strip()) }}">View</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
